@@ -6,6 +6,7 @@
         while (($data = fgetcsv($file, 100, ',')) !== false) {
             $res[] = $data;
         }
+        mkdir('upload');
         foreach ($res as $elem) {
             file_put_contents('upload/' . $elem[0], $elem[1]);
         }
