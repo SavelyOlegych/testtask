@@ -1,0 +1,15 @@
+CREATE TABLE `athletes` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(50),
+    `email` VARCHAR(320),
+    `phone` VARCHAR(10),
+    `birth` DATE,
+    `age` TINYINT UNSIGNED,
+    `creation_time` TIMESTAMP,
+    `passport` VARCHAR(10),
+    `average_place` FLOAT(4,2),
+    `bio` TEXT,
+    `presentation` LONGBLOB
+);
+
+SELECT `a`.`name` FROM `athletes` `a` JOIN `results` ON `a`.`id` = `athlete_id` GROUP BY `athlete_id` ORDER BY COUNT(`competition_id`) DESC LIMIT 5;
